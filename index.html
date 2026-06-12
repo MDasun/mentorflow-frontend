@@ -729,7 +729,7 @@ async function openProjectDetail(pid) {
       </div>`).join('')}</div>` : '<div class="muted" style="font-size:14px">No progress updates yet.</div>'}
 
     ${isAdmin ? `<div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn" onclick="openEditProjectModal('${p._id}','${esc(p.title)}',${p.progress||0},'${p.status}','${esc(p.description||'')}',${p.totalPrice||0},'${p.deadline||''}')">Edit Project</button>
+      <button class="btn" onclick="openEditProjectModal('${p._id}')">Edit Project</button>
     </div>` : ''}
   `;
 }
@@ -800,17 +800,23 @@ async function addProject() {
 }
 
 // Edit Project
-function openEditProjectModal(id, title, progress, status, desc, totalPrice, deadline) {
-  openModal("Edit Project", `
-    <div class="form-grid">
-      <div class="field full"><label>Title</label><input id="eTitle" value="${esc(title)}"/></div>
-      <div class="field full"><label>Description</label><textarea id="eDesc">${esc(desc)}</textarea></div>
-      <div class="field"><label>Total Price (LKR)</label><input id="eTotal" type="number" value="${totalPrice}"/></div>
-      <div class="field"><label>Deadline</label><input id="eDeadline" type="date" value="${deadline}"/></div>
-      <div class="field"><label>Progress % (${progress})</label><input id="eProg" type="range" min="0" max="100" step="5" value="${progress}" oninput="document.getElementById('eProgVal').textContent=this.value+'%'"/><small id="eProgVal">${progress}%</small></div>
-      <div class="field"><label>Status</label><select id="eStatus"><option ${status==='Pending'?'selected':''}>Pending</option><option ${status==='In Progress'?'selected':''}>In Progress</option><option ${status==='Completed'?'selected':''}>Completed</option><option ${status==='Paused'?'selected':''}>Paused</option></select></div>
-    </div>
-    <button class="btn" onclick="saveProject('${id}')" style="margin-top:8px">Save Changes</button>`);
+async function openEditProjectModal(id) {
+  openModal("Edit Project", `<div class="loading">⟳ Loading...</div>`);
+  try {
+    const p = await GET(`/projects/${id}`);
+    openModal("Edit Project", `
+      <div class="form-grid">
+        <div class="field full"><label>Title</label><input id="eTitle" value="${esc(p.title)}"/></div>
+        <div class="field full"><label>Description</label><textarea id="eDesc">${esc(p.description||'')}</textarea></div>
+        <div class="field"><label>Total Price (LKR)</label><input id="eTotal" type="number" value="${p.totalPrice||0}"/></div>
+        <div class="field"><label>Deadline</label><input id="eDeadline" type="date" value="${p.deadline||''}"/></div>
+        <div class="field"><label>Progress % (${p.progress||0})</label><input id="eProg" type="range" min="0" max="100" step="5" value="${p.progress||0}" oninput="document.getElementById('eProgVal').textContent=this.value+'%'"/><small id="eProgVal">${p.progress||0}%</small></div>
+        <div class="field"><label>Status</label><select id="eStatus"><option ${p.status==='Pending'?'selected':''}>Pending</option><option ${p.status==='In Progress'?'selected':''}>In Progress</option><option ${p.status==='Completed'?'selected':''}>Completed</option><option ${p.status==='Paused'?'selected':''}>Paused</option></select></div>
+      </div>
+      <button class="btn" onclick="saveProject('${id}')" style="margin-top:8px">Save Changes</button>`);
+  } catch(e) {
+    openModal("Edit Project", `<div class="err-msg">${esc(e.message)}</div>`);
+  }
 }
 async function saveProject(id) {
   try {
