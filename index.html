@@ -783,10 +783,11 @@ function openProjectModal(students) {
 }
 async function addProject() {
   try {
+    // Create project without setting paidAmount here — record initial payment as a Payment
     await POST("/projects", {
       studentId: pStudent.value, title: pTitle.value.trim(),
       description: pDesc.value.trim(), totalPrice: Number(pTotal.value||0),
-      paidAmount: Number(pPaid.value||0), progress: Number(pProg.value||0),
+      progress: Number(pProg.value||0),
       status: pStatus.value, deadline: pDeadline.value
     });
     if (Number(pPaid.value) > 0) {
