@@ -592,7 +592,7 @@ function progressTable(updates, projects, readonly=false) {
     return `<tr>
       <td>${esc(u.date)}</td>
       <td>${esc(p?.title||'Unknown')}</td>
-      <td><b>${esc(u.title)}</b><br><span class="muted" style="font-size:12px">${esc(u.details||'')}</span></td>
+      <td><b>${esc(u.title)}</b>${u.requirementId?.title?`<div class="muted" style="font-size:12px">Requirement: ${esc(u.requirementId.title)}</div>`:''}<br><span class="muted" style="font-size:12px">${esc(u.details||'')}</span></td>
       <td>${u.progress}%</td>
       ${readonly?'':`<td><button class="btn danger sm" onclick="deleteProgress('${u._id}')">Del</button></td>`}
     </tr>`;
