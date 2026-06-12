@@ -266,10 +266,7 @@
   <div class="login-right">
     <h2>Welcome back</h2>
     <div class="sub">Sign in to your account</div>
-    <div class="role-tabs">
-      <button class="role-tab active" id="tabStudent" onclick="setRole('student')">Student</button>
-      <button class="role-tab" id="tabAdmin" onclick="setRole('admin')">Admin</button>
-    </div>
+    <!-- Single unified login — role is determined by credentials -->
     <div class="field">
       <label>Username / Email</label>
       <input id="loginUser" placeholder="Enter your username or email" onkeydown="if(event.key==='Enter')doLogin()"/>
@@ -313,7 +310,6 @@ const API = window.location.hostname === "localhost"
 let token = localStorage.getItem("mf_token") || null;
 let currentUser = null;
 let currentPage = "dashboard";
-let loginRole = "student";
 
 // ── API Helpers ───────────────────────────────────────────────
 async function api(method, path, body) {
@@ -336,23 +332,7 @@ function DEL(path)        { return api("DELETE", path); }
 function PATCH(path, body){ return api("PATCH", path, body); }
 
 // ── Login ─────────────────────────────────────────────────────
-function setRole(role) {
-  loginRole = role;
-  document.getElementById("tabStudent").classList.toggle("active", role === "student");
-  document.getElementById("tabAdmin").classList.toggle("active", role === "admin");
-  document.getElementById("loginUser").value = "";
-  document.getElementById("loginPass").value = "";
-  document.getElementById("loginErr").classList.add("hidden");
-}
-
-// Auto-detect admin username while typing (helps UX when using fixed admin creds)
-const ADMIN_USERNAMES = ["admin", "admin@admin.com", "admin@example.com"];
-document.getElementById("loginUser").addEventListener("input", (e) => {
-  const v = e.target.value.trim().toLowerCase();
-  if (!v) return;
-  // if typed value exactly matches a known admin username, highlight admin tab
-  if (ADMIN_USERNAMES.includes(v)) setRole("admin");
-});
+// Role selection removed in UI — backend determines role from credentials
 
 async function doLogin() {
   const btn = document.getElementById("loginBtn");
