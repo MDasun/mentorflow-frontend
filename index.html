@@ -349,6 +349,15 @@ function setRole(role) {
   document.getElementById("loginErr").classList.add("hidden");
 }
 
+// Auto-detect admin username while typing (helps UX when using fixed admin creds)
+const ADMIN_USERNAMES = ["admin", "admin@admin.com", "admin@example.com"];
+document.getElementById("loginUser").addEventListener("input", (e) => {
+  const v = e.target.value.trim().toLowerCase();
+  if (!v) return;
+  // if typed value exactly matches a known admin username, highlight admin tab
+  if (ADMIN_USERNAMES.includes(v)) setRole("admin");
+});
+
 async function doLogin() {
   const btn = document.getElementById("loginBtn");
   const errEl = document.getElementById("loginErr");
