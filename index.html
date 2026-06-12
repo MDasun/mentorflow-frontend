@@ -744,8 +744,11 @@ function openModal(title, body) {
 }
 function closeModal() { document.getElementById("modal").classList.add("hidden"); }
 
-function pOpts(projects) {
-  return projects.map(p=>`<option value="${p._id}">${esc(p.title)}</option>`).join("");
+function pOpts(projects, selectedProjectId) {
+  return projects.map(p => `
+    <option value="${p._id}"${selectedProjectId && String(p._id) === String(selectedProjectId) ? " selected" : ""}>
+      ${esc(p.title)}
+    </option>`).join("");
 }
 
 // Add Student
@@ -860,9 +863,17 @@ async function addPayment() {
 }
 
 // Add Progress
-function openProgressModal(projects) {
+async function openProgressModal(projects) {
+  openModal("Add Progress Update", `<div class="loading">⟳ Loading requirements...</div>`);
+  const projectId = projects[0]?._id || "";
+  const requirements = projectId ? await GET(`/requirements?projectId=${projectId}`) : [];
+  renderProgressModal(projects, requirements, projectId);
+}
+
+function renderProgressModal(projects, requirements, selectedProjectId) {
   openModal("Add Progress Update", `
-    <div class="field"><label>Project</label><select id="prProject">${pOpts(projects)}</select></div>
+    <div class="field"><label>Project</label><select id="prProject" onchange="fetchProgressRequirements(this.value)">${pOpts(projects, selectedProjectId)}</select></div>
+    <div class="field"><label>Requirement</label><select id="prRequirement">${requirementOptions(requirements)}</select></div>
     <div class="form-grid">
       <div class="field"><label>Date</label><input id="prDate" type="date" value="${today()}"/></div>
       <div class="field"><label>Progress %</label><input id="prPct" type="number" min="0" max="100" value="0"/></div>
@@ -871,9 +882,33 @@ function openProgressModal(projects) {
     <div class="field"><label>Details</label><textarea id="prDetails" placeholder="What was completed in this milestone..."></textarea></div>
     <button class="btn" onclick="addProgress()" style="margin-top:8px">Save Progress Update</button>`);
 }
+
+async function fetchProgressRequirements(projectId) {
+  const requirements = projectId ? await GET(`/requirements?projectId=${projectId}`) : [];
+  const sel = document.getElementById("prRequirement");
+  if (!sel) return;
+  sel.innerHTML = requirementOptions(requirements);
+}
+
+function requirementOptions(requirements) {
+  if (!requirements?.length) return `<option value="">No requirement selected</option>`;
+  return [`<option value="">-- Select requirement --</option>`,
+    ...requirements.map(r => `<option value="${r._id}">${esc(r.title)}</option>`)
+  ].join("");
+}
+
 async function addProgress() {
   try {
-    await POST("/progress", { projectId: prProject.value, date: prDate.value, title: prTitle.value.trim(), details: prDetails.value.trim(), progress: Number(prPct.value||0) });
+    const payload = {
+      projectId: prProject.value,
+      date: prDate.value,
+      title: prTitle.value.trim(),
+      details: prDetails.value.trim(),
+      progress: Number(prPct.value||0)
+    };
+    const reqSelect = document.getElementById("prRequirement");
+    if (reqSelect && reqSelect.value) payload.requirementId = reqSelect.value;
+    await POST("/progress", payload);
     closeModal(); renderPage();
   } catch(e) { alert(e.message); }
 }
