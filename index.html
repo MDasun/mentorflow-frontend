@@ -241,164 +241,89 @@
     }
 
   /* ── LANDING PAGE STYLES ── */
-  .lp-nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    height:68px;display:flex;align-items:center;justify-content:space-between;
-    padding:0 48px;
-    background:rgba(6,10,20,0);
-    backdrop-filter:blur(0px);
-    transition:background .3s,backdrop-filter .3s,border-color .3s;
-    border-bottom:1px solid transparent;
-  }
-  .lp-nav.scrolled{background:rgba(6,10,20,.92);backdrop-filter:blur(16px);border-color:var(--border)}
-  .lp-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.3px;text-decoration:none;color:var(--text)}
-  .lp-logo-mark{
-    width:34px;height:34px;border-radius:9px;
-    background:linear-gradient(135deg,var(--brand),var(--brand2));
-    display:grid;place-items:center;font-size:14px;font-weight:900;
-    box-shadow:0 4px 16px rgba(91,143,255,.4)
-  }
-  .lp-nav-links{display:flex;align-items:center;gap:6px}
-  .lp-nav-link{padding:8px 16px;border-radius:8px;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:.15s;border:none;background:transparent;font-family:inherit}
-  .lp-nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
-  .lp-nav-cta{
-    padding:9px 20px;border-radius:9px;border:none;
-    background:linear-gradient(135deg,var(--brand),var(--brand2));
-    color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;
-    box-shadow:0 4px 16px rgba(91,143,255,.3);transition:.15s
-  }
-  .lp-nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+  #landingPage{font-family:'Inter',sans-serif;background:#fff;color:#0f0f0f}
 
-  /* Hero */
-  .lp-hero{
-    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden;
-  }
-  .lp-hero::before{
-    content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
-    width:800px;height:800px;border-radius:50%;
-    background:radial-gradient(circle,rgba(91,143,255,.12) 0%,rgba(139,92,246,.06) 40%,transparent 70%);
-    pointer-events:none;
-  }
-  .lp-badge{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:7px 16px;border-radius:999px;
-    background:rgba(91,143,255,.1);border:1px solid rgba(91,143,255,.25);
-    font-size:12.5px;font-weight:700;color:var(--brand);margin-bottom:28px;
-    letter-spacing:.3px
-  }
-  .lp-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-  .lp-hero h1{
-    font-size:clamp(40px,6vw,72px);line-height:1.04;letter-spacing:-2px;
-    font-weight:800;max-width:900px;margin-bottom:24px;
-  }
-  .lp-hero h1 .grad{
-    background:linear-gradient(135deg,var(--brand) 0%,var(--brand2) 50%,#ec4899 100%);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
-  }
-  .lp-hero p{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:580px;line-height:1.7;margin-bottom:40px}
-  .lp-hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .lp-btn-primary{
-    padding:14px 28px;border-radius:12px;border:none;
-    background:linear-gradient(135deg,var(--brand),var(--brand2));
-    color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;
-    box-shadow:0 8px 24px rgba(91,143,255,.35);transition:.15s
-  }
-  .lp-btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(91,143,255,.45)}
-  .lp-btn-secondary{
-    padding:14px 28px;border-radius:12px;
-    border:1px solid var(--border2);background:rgba(255,255,255,.04);
-    color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s
-  }
-  .lp-btn-secondary:hover{background:rgba(255,255,255,.08);border-color:rgba(91,143,255,.4)}
+  .lp-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(255,255,255,0);transition:background .25s,box-shadow .25s,border-color .25s;border-bottom:1px solid transparent}
+  .lp-nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-color:#e8e8e8;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+  .lp-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.4px;text-decoration:none;color:#0f0f0f;font-family:'Bricolage Grotesque','Inter',sans-serif}
+  .lp-logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:grid;place-items:center;font-size:13px;font-weight:900;color:#fff;box-shadow:0 4px 12px rgba(99,102,241,.35)}
+  .lp-nav-links{display:flex;align-items:center;gap:4px}
+  .lp-nav-link{padding:8px 14px;border-radius:8px;color:#555;font-size:14px;font-weight:500;cursor:pointer;transition:.15s;border:none;background:transparent;font-family:inherit}
+  .lp-nav-link:hover{color:#0f0f0f;background:#f4f4f4}
+  .lp-nav-cta{padding:9px 20px;border-radius:9px;border:none;background:#0f0f0f;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+  .lp-nav-cta:hover{background:#333;transform:translateY(-1px)}
 
-  /* Stats bar */
-  .lp-stats{
-    display:flex;justify-content:center;gap:0;
-    border:1px solid var(--border);border-radius:16px;
-    background:rgba(255,255,255,.025);
-    margin:64px auto 0;max-width:700px;overflow:hidden;
-  }
-  .lp-stat{flex:1;padding:24px 20px;text-align:center;border-right:1px solid var(--border)}
+  .lp-hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 24px 80px;position:relative;overflow:hidden;background:#fff}
+  .lp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(99,102,241,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 20%,rgba(139,92,246,.06) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 50% 80%,rgba(236,72,153,.04) 0%,transparent 60%);pointer-events:none}
+  .lp-hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.25;background-image:linear-gradient(#e5e5e5 1px,transparent 1px),linear-gradient(90deg,#e5e5e5 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,black 20%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,black 20%,transparent 80%)}
+  .lp-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#f0f0ff;border:1px solid #d4d4f8;font-size:12px;font-weight:600;color:#6366f1;margin-bottom:28px;letter-spacing:.2px;position:relative}
+  .lp-badge-dot{width:6px;height:6px;border-radius:50%;background:#6366f1;animation:lpPulse 2s infinite}
+  @keyframes lpPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+  .lp-hero h1{font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:clamp(44px,6.5vw,80px);line-height:1.02;letter-spacing:-3px;font-weight:800;max-width:860px;margin-bottom:22px;position:relative;color:#0a0a0a}
+  .lp-hero h1 .grad{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#ec4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .lp-hero p{font-size:clamp(16px,1.8vw,18px);color:#666;max-width:520px;line-height:1.75;margin-bottom:36px;position:relative}
+  .lp-hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+  .lp-btn-primary{padding:14px 28px;border-radius:12px;border:none;background:#0f0f0f;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s;letter-spacing:-.1px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+  .lp-btn-primary:hover{background:#222;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .lp-btn-secondary{padding:14px 28px;border-radius:12px;border:1.5px solid #e0e0e0;background:#fff;color:#333;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+  .lp-btn-secondary:hover{border-color:#bbb;background:#f8f8f8;transform:translateY(-1px)}
+
+  .lp-stats{display:flex;justify-content:center;border:1.5px solid #e8e8e8;border-radius:16px;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.06);margin:56px auto 0;max-width:600px;overflow:hidden;position:relative}
+  .lp-stat{flex:1;padding:22px 20px;text-align:center;border-right:1px solid #eee}
   .lp-stat:last-child{border-right:none}
-  .lp-stat-val{font-size:28px;font-weight:800;letter-spacing:-.5px}
-  .lp-stat-lbl{font-size:12px;color:var(--muted);margin-top:4px}
+  .lp-stat-val{font-size:26px;font-weight:800;letter-spacing:-.5px;color:#0f0f0f;font-family:'Bricolage Grotesque','Inter',sans-serif}
+  .lp-stat-lbl{font-size:12px;color:#999;margin-top:4px;font-weight:500}
 
-  /* Features */
   .lp-section{padding:100px 24px;max-width:1100px;margin:0 auto}
-  .lp-section-tag{
-    display:inline-block;padding:5px 14px;border-radius:999px;
-    background:rgba(91,143,255,.1);border:1px solid rgba(91,143,255,.2);
-    font-size:12px;font-weight:700;color:var(--brand);letter-spacing:.4px;text-transform:uppercase;
-    margin-bottom:16px
-  }
-  .lp-section h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:14px;line-height:1.1}
-  .lp-section .sub{font-size:17px;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:56px}
-  .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-  .feature-card{
-    background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;
-    transition:.2s;position:relative;overflow:hidden
-  }
-  .feature-card::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:2px;
-    background:linear-gradient(90deg,var(--brand),var(--brand2));opacity:0;transition:.2s
-  }
-  .feature-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-  .feature-card:hover::before{opacity:1}
-  .feature-icon{
-    width:48px;height:48px;border-radius:12px;
-    background:rgba(91,143,255,.1);border:1px solid rgba(91,143,255,.2);
-    display:grid;place-items:center;font-size:22px;margin-bottom:18px
-  }
-  .feature-card h3{font-size:17px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px}
-  .feature-card p{font-size:14px;color:var(--muted);line-height:1.6}
+  .lp-section-tag{display:inline-block;padding:5px 12px;border-radius:999px;background:#f0f0ff;border:1px solid #d4d4f8;font-size:11px;font-weight:700;color:#6366f1;letter-spacing:.6px;text-transform:uppercase;margin-bottom:14px}
+  .lp-section h2{font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-1.5px;margin-bottom:14px;line-height:1.05;color:#0a0a0a}
+  .lp-section .sub{font-size:17px;color:#777;max-width:500px;line-height:1.7;margin-bottom:52px}
 
-  /* How it works */
-  .how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
-  .how-card{text-align:center;padding:32px 20px}
-  .how-num{
-    width:52px;height:52px;border-radius:50%;margin:0 auto 20px;
-    background:linear-gradient(135deg,var(--brand),var(--brand2));
-    display:grid;place-items:center;font-size:18px;font-weight:800;
-    box-shadow:0 8px 24px rgba(91,143,255,.3)
-  }
-  .how-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
-  .how-card p{font-size:13.5px;color:var(--muted);line-height:1.6}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .feature-card{background:#fff;border:1.5px solid #e8e8e8;border-radius:20px;padding:28px;transition:.2s}
+  .feature-card:hover{border-color:#c7c7ff;box-shadow:0 8px 32px rgba(99,102,241,.1);transform:translateY(-3px)}
+  .feature-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#f0f0ff,#e8e4ff);display:grid;place-items:center;font-size:20px;margin-bottom:16px;border:1px solid #ddd8ff}
+  .feature-card h3{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-.2px;color:#0f0f0f}
+  .feature-card p{font-size:14px;color:#777;line-height:1.65}
 
-  /* CTA */
-  .lp-cta{
-    margin:0 24px 100px;border-radius:24px;padding:80px 40px;text-align:center;
-    background:linear-gradient(135deg,rgba(91,143,255,.15) 0%,rgba(139,92,246,.12) 50%,rgba(236,72,153,.08) 100%);
-    border:1px solid rgba(91,143,255,.2);position:relative;overflow:hidden;max-width:1052px;margin-inline:auto;
-  }
-  .lp-cta::before{
-    content:'';position:absolute;inset:0;
-    background:radial-gradient(circle at 50% 0%,rgba(91,143,255,.1),transparent 60%);
-  }
-  .lp-cta h2{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;position:relative}
-  .lp-cta p{font-size:17px;color:var(--muted);margin-bottom:32px;position:relative}
+  .how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+  .how-card{text-align:center;padding:32px 20px;border-radius:20px;background:#fafafa;border:1.5px solid #efefef;transition:.2s}
+  .how-card:hover{border-color:#c7c7ff;background:#f8f8ff}
+  .how-num{width:48px;height:48px;border-radius:50%;margin:0 auto 18px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:grid;place-items:center;font-size:17px;font-weight:800;color:#fff;box-shadow:0 6px 18px rgba(99,102,241,.35);font-family:'Bricolage Grotesque','Inter',sans-serif}
+  .how-card h3{font-size:15px;font-weight:700;margin-bottom:8px;color:#0f0f0f}
+  .how-card p{font-size:13.5px;color:#777;line-height:1.65}
 
-  /* Footer */
-  .lp-footer{
-    border-top:1px solid var(--border);padding:40px 48px;
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px
-  }
-  .lp-footer-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
-  .lp-footer p{font-size:13px;color:var(--muted)}
+  .pricing-card{display:inline-block;background:#fff;border:1.5px solid #e0e0e0;border-radius:24px;padding:40px 52px;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.06);transition:.2s}
+  .pricing-card:hover{box-shadow:0 8px 48px rgba(99,102,241,.12);border-color:#c7c7ff}
+  .pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6366f1,#8b5cf6,#ec4899)}
+  .pricing-free{font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:56px;font-weight:800;letter-spacing:-2px;background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-  /* Divider line between sections */
-  .lp-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 48px}
+  .lp-cta{border-radius:28px;padding:80px 40px;text-align:center;background:#0a0a0a;position:relative;overflow:hidden;max-width:1052px;margin-inline:auto}
+  .lp-cta::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.25) 0%,rgba(139,92,246,.15) 40%,transparent 70%);pointer-events:none}
+  .lp-cta h2{font-family:'Bricolage Grotesque','Inter',sans-serif;font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-1.5px;margin-bottom:16px;color:#fff;position:relative}
+  .lp-cta p{font-size:17px;color:#aaa;margin-bottom:36px;position:relative}
+  .lp-cta .lp-btn-primary{background:#fff;color:#0f0f0f;box-shadow:0 8px 24px rgba(255,255,255,.15)}
+  .lp-cta .lp-btn-primary:hover{background:#f0f0f0}
+
+  .lp-divider{height:1px;background:#f0f0f0}
+  .lp-footer{background:#fafafa;border-top:1.5px solid #eee;padding:36px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .lp-footer-logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#0f0f0f}
+  .lp-footer p{font-size:13px;color:#aaa}
+
+  #features-wrap{background:#fafafa;padding:1px 0}
+  #how-wrap{background:#fff;padding:1px 0}
+  #pricing-wrap{background:#fafafa;padding:1px 0}
 
   @media(max-width:768px){
-    .lp-nav{padding:0 20px}
+    .lp-nav{padding:0 18px}
     .lp-nav-links .lp-nav-link{display:none}
-    .lp-stats{flex-direction:column;max-width:320px}
-    .lp-stat{border-right:none;border-bottom:1px solid var(--border)}
+    .lp-stats{flex-direction:column;max-width:300px}
+    .lp-stat{border-right:none;border-bottom:1px solid #eee}
     .lp-stat:last-child{border-bottom:none}
-    .lp-footer{flex-direction:column;text-align:center;padding:32px 20px}
-    .lp-cta{margin:0 16px 60px;padding:48px 24px}
-    .lp-section{padding:60px 20px}
+    .lp-footer{flex-direction:column;text-align:center;padding:28px 20px}
+    .lp-cta{padding:52px 24px;margin:0 16px}
+    .pricing-card{padding:32px 28px}
+    .lp-section{padding:64px 20px}
   }
   </style>
 </head>
@@ -416,129 +341,145 @@
       MentorFlow
     </a>
     <div class="lp-nav-links">
-      <button class="lp-nav-link" onclick="lpScrollTo('features')">Features</button>
-      <button class="lp-nav-link" onclick="lpScrollTo('how')">How it works</button>
-      <button class="lp-nav-link" onclick="lpScrollTo('pricing')">Pricing</button>
+      <button class="lp-nav-link" onclick="lpScrollTo('features-wrap')">Features</button>
+      <button class="lp-nav-link" onclick="lpScrollTo('how-wrap')">How it works</button>
+      <button class="lp-nav-link" onclick="lpScrollTo('pricing-wrap')">Pricing</button>
       <button class="lp-nav-cta" onclick="showLoginPage()">Sign In →</button>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="lp-hero">
+    <div class="lp-hero-grid"></div>
     <div class="lp-badge"><span class="lp-badge-dot"></span> Built for freelance project mentors</div>
     <h1>Manage projects.<br>Track payments.<br><span class="grad">Deliver results.</span></h1>
     <p>MentorFlow is the all-in-one portal for freelance mentors and developers to manage student projects, track milestones, and handle payments professionally.</p>
     <div class="lp-hero-btns">
       <button class="lp-btn-primary" onclick="showLoginPage()">Get Started Free →</button>
-      <button class="lp-btn-secondary" onclick="lpScrollTo('features')">See Features</button>
+      <button class="lp-btn-secondary" onclick="lpScrollTo('features-wrap')">See Features</button>
     </div>
     <div class="lp-stats">
-      <div class="lp-stat"><div class="lp-stat-val" style="color:var(--brand)">100%</div><div class="lp-stat-lbl">Private per-student</div></div>
-      <div class="lp-stat"><div class="lp-stat-val" style="color:var(--green)">LKR</div><div class="lp-stat-lbl">Local currency support</div></div>
-      <div class="lp-stat"><div class="lp-stat-val" style="color:#ec4899">Free</div><div class="lp-stat-lbl">No monthly fee</div></div>
+      <div class="lp-stat">
+        <div class="lp-stat-val" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent">100%</div>
+        <div class="lp-stat-lbl">Private per-student</div>
+      </div>
+      <div class="lp-stat">
+        <div class="lp-stat-val" style="color:#059669">LKR</div>
+        <div class="lp-stat-lbl">Local currency support</div>
+      </div>
+      <div class="lp-stat">
+        <div class="lp-stat-val" style="color:#ec4899">Free</div>
+        <div class="lp-stat-lbl">No monthly fee</div>
+      </div>
     </div>
   </section>
 
   <div class="lp-divider"></div>
 
   <!-- Features -->
-  <section class="lp-section" id="features">
-    <div class="lp-section-tag">Features</div>
-    <h2>Everything you need to<br>run your freelance projects.</h2>
-    <p class="sub">From onboarding students to final delivery — MentorFlow keeps every project organized and transparent.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h3>Private Student Portals</h3>
-        <p>Each student logs in and sees only their own project. Full isolation — no data leaks between clients.</p>
+  <div id="features-wrap">
+    <section class="lp-section">
+      <div class="lp-section-tag">Features</div>
+      <h2>Everything you need to run<br>your freelance projects.</h2>
+      <p class="sub">From onboarding students to final delivery — MentorFlow keeps every project organized and transparent.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>Private Student Portals</h3>
+          <p>Each student logs in and sees only their own project. Full isolation — no data leaks between clients.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Payment Tracking</h3>
+          <p>Record payments, set total project price, track advance payments and outstanding balances in LKR.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>Requirement Breakdown</h3>
+          <p>Break projects into individual requirements with costs. Students see exactly what they're paying for.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Progress Timeline</h3>
+          <p>Add milestone updates with percentage completion. Students stay informed without needing to WhatsApp you.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Multi-Student Management</h3>
+          <p>Handle multiple clients simultaneously. Admin dashboard shows all projects, revenue and pending amounts at a glance.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">☁️</div>
+          <h3>Cloud-Hosted &amp; Secure</h3>
+          <p>Backed by MongoDB Atlas and deployed on Render. Your data is safe, accessible anywhere, 24/7.</p>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">💰</div>
-        <h3>Payment Tracking</h3>
-        <p>Record payments, set total project price, track advance payments and outstanding balances in LKR.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✅</div>
-        <h3>Requirement Breakdown</h3>
-        <p>Break projects into individual requirements with costs. Students see exactly what they're paying for.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📈</div>
-        <h3>Progress Timeline</h3>
-        <p>Add milestone updates with percentage completion. Students stay informed without needing to WhatsApp you.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">👥</div>
-        <h3>Multi-Student Management</h3>
-        <p>Handle multiple clients simultaneously. Admin dashboard shows all projects, revenue and pending amounts at a glance.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">☁️</div>
-        <h3>Cloud-Hosted & Secure</h3>
-        <p>Backed by MongoDB Atlas and deployed on Render. Your data is safe, accessible anywhere, 24/7.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <div class="lp-divider"></div>
 
   <!-- How it works -->
-  <section class="lp-section" id="how">
-    <div style="text-align:center">
+  <div id="how-wrap">
+    <section class="lp-section" style="text-align:center">
       <div class="lp-section-tag">How it works</div>
       <h2 style="margin-bottom:14px">Up and running in minutes.</h2>
-      <p class="sub" style="margin-inline:auto;text-align:center">Four simple steps to manage your first project professionally.</p>
-    </div>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-num">1</div>
-        <h3>Create a student account</h3>
-        <p>Add your client as a student with a username and password from the admin panel.</p>
+      <p class="sub" style="margin-inline:auto">Four simple steps to manage your first project professionally.</p>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">1</div>
+          <h3>Create a student account</h3>
+          <p>Add your client as a student with a username and password from the admin panel.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">2</div>
+          <h3>Set up the project</h3>
+          <p>Assign the project, add requirements with individual costs, set total price and deadline.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">3</div>
+          <h3>Track progress &amp; payments</h3>
+          <p>Add milestone updates and record payments as they come in. Balance updates automatically.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">4</div>
+          <h3>Student views their portal</h3>
+          <p>Your client logs in and sees their project status, requirements, progress and payment history — nothing else.</p>
+        </div>
       </div>
-      <div class="how-card">
-        <div class="how-num">2</div>
-        <h3>Set up the project</h3>
-        <p>Assign the project, add requirements with individual costs, set total price and deadline.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">3</div>
-        <h3>Track progress & payments</h3>
-        <p>Add milestone updates and record payments as they come in. Balance updates automatically.</p>
-      </div>
-      <div class="how-card">
-        <div class="how-num">4</div>
-        <h3>Student views their portal</h3>
-        <p>Your client logs in and sees their project status, requirements, progress and payment history — nothing else.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <div class="lp-divider"></div>
 
   <!-- Pricing -->
-  <section class="lp-section" id="pricing" style="text-align:center">
-    <div class="lp-section-tag">Pricing</div>
-    <h2>Simple, honest pricing.</h2>
-    <p class="sub" style="margin-inline:auto">No subscriptions, no hidden fees. MentorFlow is free to self-host.</p>
-    <div style="display:inline-block;background:var(--surface);border:1px solid var(--border2);border-radius:24px;padding:40px 56px;position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand2))"></div>
-      <div style="font-size:56px;font-weight:800;letter-spacing:-2px;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Free</div>
-      <div style="color:var(--muted);font-size:15px;margin:8px 0 28px">Self-hosted on Render + MongoDB Atlas</div>
-      <div style="display:flex;flex-direction:column;gap:12px;text-align:left;min-width:260px">
-        ${['Unlimited students','Unlimited projects','Payment tracking','Progress milestones','Requirement breakdown','Private student portals','MongoDB cloud storage'].map(f=>`
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px">
-          <span style="color:var(--green);font-weight:700">✓</span>${f}
-        </div>`).join('')}
+  <div id="pricing-wrap">
+    <section class="lp-section" style="text-align:center">
+      <div class="lp-section-tag">Pricing</div>
+      <h2>Simple, honest pricing.</h2>
+      <p class="sub" style="margin-inline:auto">No subscriptions, no hidden fees. MentorFlow is free to self-host.</p>
+      <div class="pricing-card">
+        <div class="pricing-free">Free</div>
+        <div style="color:#999;font-size:15px;margin:8px 0 28px">Self-hosted on Render + MongoDB Atlas</div>
+        <div style="display:flex;flex-direction:column;gap:12px;text-align:left;min-width:260px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Unlimited students</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Unlimited projects</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Payment tracking</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Progress milestones</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Requirement breakdown</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Private student portals</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>MongoDB cloud storage</div>
+        </div>
+        <button class="lp-btn-primary" style="width:100%;margin-top:32px;padding:14px" onclick="showLoginPage()">Start Now — It's Free</button>
       </div>
-      <button class="lp-btn-primary" style="width:100%;margin-top:32px;padding:14px" onclick="showLoginPage()">Start Now — It's Free</button>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- CTA -->
   <div style="padding:0 24px 100px;max-width:1100px;margin:0 auto">
     <div class="lp-cta">
       <h2>Ready to manage your projects<br>like a professional?</h2>
-      <p>Join MentorFlow and stop tracking projects in WhatsApp and Excel.</p>
+      <p>Stop tracking projects in WhatsApp and Excel. MentorFlow keeps everything in one place.</p>
       <button class="lp-btn-primary" style="font-size:16px;padding:16px 36px" onclick="showLoginPage()">Sign In to Your Portal →</button>
     </div>
   </div>
@@ -549,7 +490,7 @@
       <div class="lp-logo-mark" style="width:28px;height:28px;font-size:12px">MF</div>
       MentorFlow
     </div>
-    <p>Built for freelance project mentors & developers · Sri Lanka 🇱🇰</p>
+    <p>Built for freelance project mentors &amp; developers · Sri Lanka 🇱🇰</p>
     <button class="lp-nav-cta" onclick="showLoginPage()">Sign In →</button>
   </footer>
 
