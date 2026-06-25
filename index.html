@@ -325,6 +325,164 @@
     .pricing-card{padding:32px 28px}
     .lp-section{padding:64px 20px}
   }
+
+  /* ══════════════════════════════════════════
+     DARK / LIGHT MODE TOGGLE
+  ══════════════════════════════════════════ */
+
+  /* Default = light for landing, dark for app */
+  /* html[data-theme="dark"] overrides landing to dark */
+  /* html[data-theme="light"] overrides app to light */
+
+  html[data-theme="dark"] #landingPage {
+    background: #060a14;
+    color: #e8eeff;
+  }
+  html[data-theme="dark"] .lp-nav.scrolled {
+    background: rgba(6,10,20,.92);
+    border-color: rgba(99,140,255,.15);
+    box-shadow: none;
+  }
+  html[data-theme="dark"] .lp-nav:not(.scrolled) { background: rgba(6,10,20,0); }
+  html[data-theme="dark"] .lp-logo { color: #e8eeff; }
+  html[data-theme="dark"] .lp-nav-link { color: #7a8fb5; }
+  html[data-theme="dark"] .lp-nav-link:hover { color: #e8eeff; background: rgba(255,255,255,.06); }
+  html[data-theme="dark"] .lp-nav-cta { background: #5b8fff; color: #fff; }
+  html[data-theme="dark"] .lp-nav-cta:hover { background: #4a7ef0; }
+
+  html[data-theme="dark"] .lp-hero { background: #060a14; }
+  html[data-theme="dark"] .lp-hero::before {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 10%,rgba(91,143,255,.12) 0%,transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 20%,rgba(139,92,246,.08) 0%,transparent 60%);
+  }
+  html[data-theme="dark"] .lp-hero-grid {
+    background-image: linear-gradient(rgba(99,140,255,.12) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(99,140,255,.12) 1px, transparent 1px);
+    opacity: .5;
+  }
+  html[data-theme="dark"] .lp-hero h1 { color: #e8eeff; }
+  html[data-theme="dark"] .lp-hero p { color: #7a8fb5; }
+  html[data-theme="dark"] .lp-badge { background: rgba(91,143,255,.1); border-color: rgba(91,143,255,.25); color: #5b8fff; }
+  html[data-theme="dark"] .lp-badge-dot { background: #5b8fff; }
+  html[data-theme="dark"] .lp-btn-primary { background: #5b8fff; box-shadow: 0 4px 14px rgba(91,143,255,.3); }
+  html[data-theme="dark"] .lp-btn-primary:hover { background: #4a7ef0; box-shadow: 0 8px 24px rgba(91,143,255,.4); }
+  html[data-theme="dark"] .lp-btn-secondary { border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.04); color: #c8d8ff; }
+  html[data-theme="dark"] .lp-btn-secondary:hover { border-color: rgba(91,143,255,.4); background: rgba(91,143,255,.08); }
+  html[data-theme="dark"] .lp-stats { background: rgba(13,21,37,.8); border-color: rgba(99,140,255,.15); box-shadow: none; }
+  html[data-theme="dark"] .lp-stat { border-color: rgba(99,140,255,.12); }
+  html[data-theme="dark"] .lp-stat-val { color: #e8eeff; }
+  html[data-theme="dark"] .lp-stat-lbl { color: #4a6080; }
+
+  html[data-theme="dark"] .lp-section h2 { color: #e8eeff; }
+  html[data-theme="dark"] .lp-section .sub { color: #7a8fb5; }
+  html[data-theme="dark"] .lp-section-tag { background: rgba(91,143,255,.1); border-color: rgba(91,143,255,.25); color: #5b8fff; }
+
+  html[data-theme="dark"] #features-wrap { background: #080c18; }
+  html[data-theme="dark"] #how-wrap { background: #060a14; }
+  html[data-theme="dark"] #pricing-wrap { background: #080c18; }
+
+  html[data-theme="dark"] .feature-card { background: #0d1525; border-color: rgba(99,140,255,.13); }
+  html[data-theme="dark"] .feature-card:hover { border-color: rgba(91,143,255,.35); box-shadow: 0 8px 32px rgba(91,143,255,.12); }
+  html[data-theme="dark"] .feature-card h3 { color: #e8eeff; }
+  html[data-theme="dark"] .feature-card p { color: #7a8fb5; }
+  html[data-theme="dark"] .feature-icon { background: rgba(91,143,255,.1); border-color: rgba(91,143,255,.2); }
+
+  html[data-theme="dark"] .how-card { background: #0d1525; border-color: rgba(99,140,255,.13); }
+  html[data-theme="dark"] .how-card:hover { border-color: rgba(91,143,255,.35); background: #111d35; }
+  html[data-theme="dark"] .how-card h3 { color: #e8eeff; }
+  html[data-theme="dark"] .how-card p { color: #7a8fb5; }
+
+  /* Why section before/after cards */
+  html[data-theme="dark"] #pricing-wrap .lp-section h2 { color: #e8eeff; }
+  html[data-theme="dark"] #pricing-wrap [style*="background:#fff;border:1.5px"] {
+    background: #0d1525 !important;
+    border-color: rgba(99,140,255,.15) !important;
+  }
+  html[data-theme="dark"] #pricing-wrap [style*="color:#666"] { color: #7a8fb5 !important; }
+  html[data-theme="dark"] #pricing-wrap [style*="color:#aaa;text-transform"] { color: #4a6080 !important; }
+
+  html[data-theme="dark"] .lp-divider { background: rgba(99,140,255,.1); }
+  html[data-theme="dark"] .lp-footer { background: #080c18; border-color: rgba(99,140,255,.1); }
+  html[data-theme="dark"] .lp-footer-logo { color: #e8eeff; }
+  html[data-theme="dark"] .lp-footer p { color: #4a6080; }
+
+  /* Light theme overrides for app (dark by default) */
+  html[data-theme="light"] {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --surface2: #f0f3fa;
+    --border: rgba(30,60,120,.1);
+    --border2: rgba(30,60,120,.18);
+    --text: #1a1f36;
+    --muted: #6b7a99;
+  }
+  html[data-theme="light"] body { background: var(--bg); color: var(--text); }
+  html[data-theme="light"] .topbar {
+    background: rgba(255,255,255,.92) !important;
+    border-color: rgba(30,60,120,.1) !important;
+    backdrop-filter: blur(12px);
+  }
+  html[data-theme="light"] .logo { color: #1a1f36; }
+  html[data-theme="light"] .sidebar {
+    background: rgba(255,255,255,.6);
+    border-color: rgba(30,60,120,.08);
+  }
+  html[data-theme="light"] .navbtn { color: #6b7a99; }
+  html[data-theme="light"] .navbtn:hover { background: rgba(91,143,255,.07); color: #1a1f36; }
+  html[data-theme="light"] .navbtn.active { background: rgba(91,143,255,.1); border-color: rgba(91,143,255,.2); color: #3d5ef5; }
+  html[data-theme="light"] .main { background: #f4f6fb; }
+  html[data-theme="light"] .card { background: #fff; border-color: rgba(30,60,120,.1); }
+  html[data-theme="light"] .stat-card { background: #fff; border-color: rgba(30,60,120,.1); }
+  html[data-theme="light"] .stat-val { color: #1a1f36; }
+  html[data-theme="light"] .modal-box { background: #fff; border-color: rgba(30,60,120,.15); }
+  html[data-theme="light"] table { background: #fff; }
+  html[data-theme="light"] th { background: rgba(30,60,120,.03); color: #6b7a99; }
+  html[data-theme="light"] td { color: #1a1f36; border-color: rgba(30,60,120,.06); }
+  html[data-theme="light"] tr:hover td { background: rgba(91,143,255,.03); }
+  html[data-theme="light"] .table-wrap { border-color: rgba(30,60,120,.1); }
+  html[data-theme="light"] .prog-wrap { background: rgba(30,60,120,.08); border-color: rgba(30,60,120,.1); }
+  html[data-theme="light"] .field input,
+  html[data-theme="light"] .form-field input,
+  html[data-theme="light"] .form-field select,
+  html[data-theme="light"] .form-field textarea {
+    background: #f8f9fc; border-color: rgba(30,60,120,.15); color: #1a1f36;
+  }
+  html[data-theme="light"] .notice { background: rgba(245,158,11,.06); }
+  html[data-theme="light"] .proj-hero { background: linear-gradient(135deg,rgba(91,143,255,.08),rgba(139,92,246,.06)); border-color: rgba(91,143,255,.2); }
+  html[data-theme="light"] .pay-box { background: rgba(30,60,120,.04); border-color: rgba(30,60,120,.1); }
+  html[data-theme="light"] .req-item { background: rgba(30,60,120,.03); border-color: rgba(30,60,120,.1); }
+  html[data-theme="light"] .page-header h2 { color: #1a1f36; }
+  html[data-theme="light"] .section-title { color: #6b7a99; }
+  html[data-theme="light"] .btn.secondary { background: #f0f3fa; border-color: rgba(30,60,120,.15); color: #1a1f36; }
+  html[data-theme="light"] .empty-state { color: #6b7a99; }
+  html[data-theme="light"] .loading { color: #6b7a99; }
+  html[data-theme="light"] .user-chip { background: #f0f3fa; border-color: rgba(30,60,120,.12); color: #1a1f36; }
+
+  /* ── Theme Toggle Button ── */
+  .theme-toggle {
+    width: 36px; height: 36px; border-radius: 10px;
+    border: 1px solid; cursor: pointer;
+    display: grid; place-items: center; font-size: 16px;
+    transition: .2s; flex-shrink: 0; background: transparent;
+  }
+  /* In app (dark default) */
+  .theme-toggle { border-color: rgba(99,140,255,.2); color: #7a8fb5; }
+  .theme-toggle:hover { background: rgba(91,143,255,.1); color: #e8eeff; border-color: rgba(91,143,255,.4); }
+  /* In light app */
+  html[data-theme="light"] .theme-toggle { border-color: rgba(30,60,120,.15); color: #6b7a99; }
+  html[data-theme="light"] .theme-toggle:hover { background: rgba(91,143,255,.08); color: #1a1f36; }
+  /* Landing page toggle (light default) */
+  .lp-theme-toggle {
+    width: 34px; height: 34px; border-radius: 9px;
+    border: 1.5px solid #e0e0e0; cursor: pointer;
+    display: grid; place-items: center; font-size:15px;
+    transition: .2s; background: transparent; color: #555;
+  }
+  .lp-theme-toggle:hover { background: #f4f4f4; border-color: #bbb; }
+  html[data-theme="dark"] .lp-theme-toggle { border-color: rgba(99,140,255,.2); color: #7a8fb5; background: transparent; }
+  html[data-theme="dark"] .lp-theme-toggle:hover { background: rgba(91,143,255,.1); border-color: rgba(91,143,255,.4); color: #e8eeff; }
+
   </style>
 </head>
 <body>
@@ -344,6 +502,7 @@
       <button class="lp-nav-link" onclick="lpScrollTo('features-wrap')">Features</button>
       <button class="lp-nav-link" onclick="lpScrollTo('how-wrap')">How it works</button>
 
+      <button class="lp-theme-toggle" id="lpThemeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
       <button class="lp-nav-cta" onclick="showLoginPage()">Sign In →</button>
     </div>
   </nav>
@@ -512,7 +671,9 @@
     <div class="logo-icon">MF</div>
     <span>MentorFlow</span>
   </div>
-  <div class="topbar-right" id="topbarRight"></div>
+  <div class="topbar-right" id="topbarRight">
+    <button class="theme-toggle" id="appThemeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  </div>
 </div>
 
 <!-- LOGIN PAGE -->
@@ -564,12 +725,51 @@
 </div>
 
 <script>
+// ── Theme ─────────────────────────────────────────────────────
+const THEME_KEY = 'mf_theme';
+
+function getTheme() {
+  return localStorage.getItem(THEME_KEY) || 'auto';
+}
+
+function applyTheme(theme) {
+  const html = document.documentElement;
+  const isLanding = !document.getElementById('landingPage').classList.contains('hidden');
+  let effective;
+  if (theme === 'dark') effective = 'dark';
+  else if (theme === 'light') effective = 'light';
+  else {
+    // auto: landing = light, app = dark (original feel)
+    effective = isLanding ? null : 'dark';
+  }
+  if (effective) html.setAttribute('data-theme', effective);
+  else html.removeAttribute('data-theme');
+
+  // Update button icons
+  const isDark = effective === 'dark' || (effective === null && !isLanding);
+  const icon = isDark ? '☀️' : '🌙';
+  const lpBtn = document.getElementById('lpThemeBtn');
+  const appBtn = document.getElementById('appThemeBtn');
+  if (lpBtn) lpBtn.textContent = icon;
+  if (appBtn) appBtn.textContent = icon;
+}
+
+function toggleTheme() {
+  const current = getTheme();
+  const html = document.documentElement;
+  const currentEffective = html.getAttribute('data-theme');
+  const next = currentEffective === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+}
+
 // ── Landing Page JS ─────────────────────────────────────────
 function showLoginPage() {
   document.getElementById("landingPage").classList.add("hidden");
   document.getElementById("appTopbar").classList.remove("hidden");
   document.getElementById("loginPage").classList.remove("hidden");
   window.scrollTo(0,0);
+  applyTheme(getTheme());
 }
 
 function showLandingPage() {
@@ -578,6 +778,7 @@ function showLandingPage() {
   document.getElementById("loginPage").classList.add("hidden");
   document.getElementById("appView").classList.add("hidden");
   window.scrollTo(0,0);
+  applyTheme(getTheme());
 }
 
 function lpScrollTo(id) {
@@ -590,6 +791,9 @@ window.addEventListener('scroll', () => {
   const nav = document.getElementById('lpNav');
   if(nav) nav.classList.toggle('scrolled', window.scrollY > 40);
 });
+
+// Init theme on load
+applyTheme(getTheme());
 </script>
 
 <script>
@@ -664,7 +868,9 @@ function showApp() {
       <div class="user-dot">${u.name.charAt(0).toUpperCase()}</div>
       <span>${esc(u.name)}</span>
       <span class="pill ${u.role==='admin'?'blue':'green'}" style="font-size:10px">${u.role}</span>
-    </div>`;
+    </div>
+    <button class="theme-toggle" id="appThemeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>`;
+  applyTheme(getTheme());
   currentPage = "dashboard";
   renderSidebar();
   renderPage();
