@@ -459,29 +459,60 @@
   html[data-theme="light"] .loading { color: #6b7a99; }
   html[data-theme="light"] .user-chip { background: #f0f3fa; border-color: rgba(30,60,120,.12); color: #1a1f36; }
 
-  /* ── Theme Toggle Button ── */
-  .theme-toggle {
-    width: 36px; height: 36px; border-radius: 10px;
-    border: 1px solid; cursor: pointer;
-    display: grid; place-items: center; font-size: 16px;
-    transition: .2s; flex-shrink: 0; background: transparent;
+  /* ── Slider Theme Toggle ── */
+  .theme-toggle, .lp-theme-toggle {
+    position: relative;
+    width: 52px; height: 28px;
+    border-radius: 999px;
+    border: none; cursor: pointer;
+    background: #2a2f45;
+    transition: background .35s;
+    flex-shrink: 0; padding: 0;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,.3);
   }
-  /* In app (dark default) */
-  .theme-toggle { border-color: rgba(99,140,255,.2); color: #7a8fb5; }
-  .theme-toggle:hover { background: rgba(91,143,255,.1); color: #e8eeff; border-color: rgba(91,143,255,.4); }
-  /* In light app */
-  html[data-theme="light"] .theme-toggle { border-color: rgba(30,60,120,.15); color: #6b7a99; }
-  html[data-theme="light"] .theme-toggle:hover { background: rgba(91,143,255,.08); color: #1a1f36; }
-  /* Landing page toggle (light default) */
+  .theme-toggle::after, .lp-theme-toggle::after {
+    content: '🌙';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #1e2440;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; line-height: 22px; text-align: center;
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1), background .35s;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  }
+  /* Light mode state — toggle slid to right */
+  html[data-theme="light"] .theme-toggle,
+  html[data-theme="light"] .lp-theme-toggle {
+    background: #c7d2fe;
+  }
+  html[data-theme="light"] .theme-toggle::after,
+  html[data-theme="light"] .lp-theme-toggle::after {
+    content: '☀️';
+    transform: translateX(24px);
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(99,102,241,.3);
+  }
+  /* Landing default = light look */
   .lp-theme-toggle {
-    width: 34px; height: 34px; border-radius: 9px;
-    border: 1.5px solid #e0e0e0; cursor: pointer;
-    display: grid; place-items: center; font-size:15px;
-    transition: .2s; background: transparent; color: #555;
+    background: #c7d2fe;
   }
-  .lp-theme-toggle:hover { background: #f4f4f4; border-color: #bbb; }
-  html[data-theme="dark"] .lp-theme-toggle { border-color: rgba(99,140,255,.2); color: #7a8fb5; background: transparent; }
-  html[data-theme="dark"] .lp-theme-toggle:hover { background: rgba(91,143,255,.1); border-color: rgba(91,143,255,.4); color: #e8eeff; }
+  .lp-theme-toggle::after {
+    content: '☀️';
+    transform: translateX(24px);
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(99,102,241,.3);
+  }
+  html[data-theme="dark"] .lp-theme-toggle {
+    background: #2a2f45;
+  }
+  html[data-theme="dark"] .lp-theme-toggle::after {
+    content: '🌙';
+    transform: translateX(0);
+    background: #1e2440;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  }
 
   </style>
 </head>
@@ -502,7 +533,7 @@
       <button class="lp-nav-link" onclick="lpScrollTo('features-wrap')">Features</button>
       <button class="lp-nav-link" onclick="lpScrollTo('how-wrap')">How it works</button>
 
-      <button class="lp-theme-toggle" id="lpThemeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="lp-theme-toggle" id="lpThemeBtn" onclick="toggleTheme()" title="Toggle theme"></button>
       <button class="lp-nav-cta" onclick="showLoginPage()">Sign In →</button>
     </div>
   </nav>
@@ -672,7 +703,7 @@
     <span>MentorFlow</span>
   </div>
   <div class="topbar-right" id="topbarRight">
-    <button class="theme-toggle" id="appThemeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    <button class="theme-toggle" id="appThemeBtn" onclick="toggleTheme()" title="Toggle theme"></button>
   </div>
 </div>
 
@@ -745,13 +776,7 @@ function applyTheme(theme) {
   if (effective) html.setAttribute('data-theme', effective);
   else html.removeAttribute('data-theme');
 
-  // Update button icons
-  const isDark = effective === 'dark' || (effective === null && !isLanding);
-  const icon = isDark ? '☀️' : '🌙';
-  const lpBtn = document.getElementById('lpThemeBtn');
-  const appBtn = document.getElementById('appThemeBtn');
-  if (lpBtn) lpBtn.textContent = icon;
-  if (appBtn) appBtn.textContent = icon;
+  // Slider uses CSS ::after — no JS icon update needed
 }
 
 function toggleTheme() {
@@ -869,7 +894,7 @@ function showApp() {
       <span>${esc(u.name)}</span>
       <span class="pill ${u.role==='admin'?'blue':'green'}" style="font-size:10px">${u.role}</span>
     </div>
-    <button class="theme-toggle" id="appThemeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>`;
+    <button class="theme-toggle" id="appThemeBtn" onclick="toggleTheme()" title="Toggle theme"></button>`;
   applyTheme(getTheme());
   currentPage = "dashboard";
   renderSidebar();
