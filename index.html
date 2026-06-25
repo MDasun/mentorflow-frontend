@@ -343,7 +343,7 @@
     <div class="lp-nav-links">
       <button class="lp-nav-link" onclick="lpScrollTo('features-wrap')">Features</button>
       <button class="lp-nav-link" onclick="lpScrollTo('how-wrap')">How it works</button>
-      <button class="lp-nav-link" onclick="lpScrollTo('pricing-wrap')">Pricing</button>
+
       <button class="lp-nav-cta" onclick="showLoginPage()">Sign In →</button>
     </div>
   </nav>
@@ -452,25 +452,35 @@
 
   <div class="lp-divider"></div>
 
-  <!-- Pricing -->
+  <!-- Testimonials / Why section -->
   <div id="pricing-wrap">
     <section class="lp-section" style="text-align:center">
-      <div class="lp-section-tag">Pricing</div>
-      <h2>Simple, honest pricing.</h2>
-      <p class="sub" style="margin-inline:auto">No subscriptions, no hidden fees. MentorFlow is free to self-host.</p>
-      <div class="pricing-card">
-        <div class="pricing-free">Free</div>
-        <div style="color:#999;font-size:15px;margin:8px 0 28px">Self-hosted on Render + MongoDB Atlas</div>
-        <div style="display:flex;flex-direction:column;gap:12px;text-align:left;min-width:260px">
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Unlimited students</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Unlimited projects</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Payment tracking</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Progress milestones</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Requirement breakdown</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>Private student portals</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;font-size:16px">✓</span>MongoDB cloud storage</div>
+      <div class="lp-section-tag">Why MentorFlow</div>
+      <h2>Stop juggling WhatsApp,<br>Excel and bank transfers.</h2>
+      <p class="sub" style="margin-inline:auto">Every freelance mentor has been here — tracking projects in chat, payments in a spreadsheet, and progress in their head. MentorFlow brings it all together.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;text-align:left;margin-top:8px">
+        <div style="background:#fff;border:1.5px solid #e8e8e8;border-radius:20px;padding:28px">
+          <div style="font-size:28px;margin-bottom:16px">😤</div>
+          <div style="font-size:13px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Before MentorFlow</div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#666"><span style="color:#ef4444;font-weight:700;margin-top:1px">✗</span>Payment reminders sent on WhatsApp</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#666"><span style="color:#ef4444;font-weight:700;margin-top:1px">✗</span>Client has no idea what progress was made</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#666"><span style="color:#ef4444;font-weight:700;margin-top:1px">✗</span>Requirements scattered across chat messages</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#666"><span style="color:#ef4444;font-weight:700;margin-top:1px">✗</span>Manually calculating outstanding balances</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#666"><span style="color:#ef4444;font-weight:700;margin-top:1px">✗</span>Looks unprofessional to industry clients</div>
+          </div>
         </div>
-        <button class="lp-btn-primary" style="width:100%;margin-top:32px;padding:14px" onclick="showLoginPage()">Start Now — It's Free</button>
+        <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1.5px solid #c7c7ff;border-radius:20px;padding:28px">
+          <div style="font-size:28px;margin-bottom:16px">🚀</div>
+          <div style="font-size:13px;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">With MentorFlow</div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;margin-top:1px">✓</span>Client logs in and sees their payment balance</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;margin-top:1px">✓</span>Progress updates visible in real time</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;margin-top:1px">✓</span>All requirements listed with individual costs</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;margin-top:1px">✓</span>Outstanding amount calculated automatically</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333"><span style="color:#6366f1;font-weight:700;margin-top:1px">✓</span>Professional portal — industry & campus ready</div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
